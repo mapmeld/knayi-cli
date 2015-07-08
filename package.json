@@ -1,6 +1,6 @@
 {
   "name": "knayi-cli",
-  "version": "1.0.5",
+  "version": "1.2.5",
   "description": "CLI to convert Myanmar Zawgyi-formatted text files to Unicode",
   "author": "The Asia Foundation",
   "bin": {
@@ -12,6 +12,6 @@
   },
   "license": "MIT",
   "dependencies": {
-    "knayi-myscript": "1.0.5"
+    "knayi-myscript": "1.0.11"
   }
 }
