@@ -2,6 +2,7 @@
 
 var fs = require("fs");
 var knayi = require("knayi-myscript");
+var sortDiacritics = require("my-diacritic-sort");
 
 var outputUnicode = function(outText) {
   if (process.argv.length > 3) {
@@ -20,7 +21,7 @@ var outputUnicode = function(outText) {
 
 if (process.argv.length > 2) {
   var srcFile = process.argv[2];
-  fs.readFile(srcFile, {encoding: 'utf-8'}, function(err, srcText) {
+  fs.readFile(srcFile, "utf-8", function(err, srcText) {
     if (err) {
       throw err;
     } else {
@@ -31,8 +32,33 @@ if (process.argv.length > 2) {
           outputUnicode(unicoded);
         });
       } else {
-        console.log("You're already in Unicode format!");
-        outputUnicode(srcText);
+        var repChars = {
+          56319: "", // "ွ",
+          56320: "ု",
+          56321: "ံ",
+          56322: "ေ",
+          56323: "ြ",
+          56324: "ှ",
+          56325: "ြ",
+          56327: "ြ",
+          56331: "ှ"
+        };
+        var rogueChars = Object.keys(repChars);
+        var replaceRogue = false;
+        for (var rc = 0; rc < rogueChars.length; rc++) {
+          if (srcText.indexOf(String.fromCharCode(rogueChars[rc])) > -1) {
+            replaceRogue = true;
+            break;
+          }
+        }
+        if (replaceRogue) {
+          console.log("You're in Unicode format but with weird diacritic order! Fixing...");
+
+          outputUnicode(sortDiacritics(srcText));
+        } else {
+          console.log("You're already in Unicode format!");
+          outputUnicode(srcText);
+        }
       }
     }
   });
