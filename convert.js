@@ -2,7 +2,6 @@
 
 var fs = require("fs");
 var knayi = require("knayi-myscript");
-var sortDiacritics = require("my-diacritic-sort");
 
 var outputUnicode = function(outText) {
   if (process.argv.length > 3) {
@@ -49,7 +48,6 @@ if (process.argv.length > 2) {
           [/\*/g, 'ဂ'],
           [/ñ/g, 'ည'],
           [/¾/g, 'ဂ္ဂ'],
-          [/\^/g, '/'],
           [/\#/g, 'ဋ'],
           [/®/g, '္မ'],
           [/Ö/g, '္ဏ'],
@@ -94,16 +92,18 @@ if (process.argv.length > 2) {
           [/\,/g, 'ယ'],
           [/\./g, '့'],
           [/\//g, '။'],
+          [/\^/g, '/'],
 
           [/Q/g, 'ှ'],
           [/W/g, 'ှ'],
           [/E/g, 'န'],
-          [/R/g, 'ှ'],
+          [/R/g, 'ျွ'],
           [/T/g, 'ွှ'],
           [/Y/g, '့'],
           [/U/g, '့'],
-          [/I/g, 'ှူ'],
-          [/O/g, 'ဉ'],
+          [/I/g, 'ှု'],
+          [/O/g, 'ဥ'],
+
           [/P/g, 'ဏ'],
           [/\{/g, '5'], // looks like c in ၏
           [/\}/g, '\''],
@@ -133,8 +133,12 @@ if (process.argv.length > 2) {
           [/\?/g, '၊'],
           [/\]/g, '\''],
           [/´/g, '္ဒ'],
-          [/Å|ú/g, '္တ'],
-
+          [/Å|å/g, '္တ'],
+          [/ú/g, '္က'],
+          [/¬/g,  '္ထ'],
+          [/©/g,  '္ခ'],
+          [/§/g, 'ှ'],
+          [/Á/g,  '္ဗ']
 
 //  ၎    ဩ ဿ  ဈ  ?
 
@@ -146,15 +150,18 @@ if (process.argv.length > 2) {
         var outText = '';
         var diacritics = [
           'ြ',
+          'ျ',
           'ွ',
           'ှ',
           'ျ',
           'ေ',
+          'ဲ',
           'ာ',
-          '်',
           'ိ',
+          'ူ',
           'ု',
           'ံ',
+          '်',
           '့',
           'း'
         ];
@@ -175,6 +182,8 @@ if (process.argv.length > 2) {
           }
         }
         outText += diacriticBuffer.join("");
+        
+        outText = outText.replace(/(\W)င်္/g, 'င်္$1');
 
         return outputUnicode(outText);
       }
