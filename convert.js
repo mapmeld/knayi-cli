@@ -27,7 +27,7 @@ if (process.argv.length > 2) {
     } else {
       if (process.argv.length > 4) {
         // WinResearcher hack
-        return outputUnicode(winResearcher(outText));
+        return outputUnicode(winResearcher(srcText));
       }
 
       var k = knayi(srcText);

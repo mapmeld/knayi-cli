@@ -1,6 +1,6 @@
 {
   "name": "knayi-cli",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "CLI to convert Myanmar Zawgyi and WinResearcher text to Unicode",
   "author": "The Asia Foundation",
   "bin": {
