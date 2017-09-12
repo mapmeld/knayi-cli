@@ -1,5 +1,7 @@
 # knayi-cli
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/mapmeld/knayi-cli.svg)](https://greenkeeper.io/)
+
 Simple command-line tool to replace Zawgyi-formatted and WinResearcher-formatted text files with proper
 
 Automatically detects if your file is already in Unicode format.
