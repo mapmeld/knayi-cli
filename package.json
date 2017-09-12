@@ -12,7 +12,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "knayi-myscript": "1.0.11",
+    "knayi-myscript": "2.2.0",
     "my-winresearcher": "^1.1.2"
   }
 }
