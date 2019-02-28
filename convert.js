@@ -30,10 +30,9 @@ if (process.argv.length > 2) {
         return outputUnicode(winResearcher(srcText));
       }
 
-      var k = knayi(srcText);
-      var myFont = k.getFontType();
+      var myFont = knayi.fontDetect(srcText);
       if (myFont === "zawgyi") {
-        k.fontConvert("unicode5", function(unicoded) {
+        knayi.fontConvert("unicode", function(unicoded) {
           outputUnicode(unicoded);
         });
       } else {
