@@ -4,7 +4,7 @@ Simple command-line tool to replace Zawgyi-formatted and WinResearcher-formatted
 
 Automatically detects if your file is already in Unicode format.
 
-CLI wrapper for Thuya Myo Nyunt's <a href="https://github.com/greenlikeorange/knayi-myscript">knayi-myscript</a> project.
+CLI wrapper for Thuya Myo Nyunt's <a href="https://github.com/greenlikeorange/knayi-myscript">knayi-myscript</a> project. Requires Node.js 22 or newer and knayi-myscript 2.9.0. Unicode text that still uses the old diacritic code points is reordered with my-diacritic-sort.
 
 ## Usage
 
